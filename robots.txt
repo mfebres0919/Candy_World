@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://candyworlddrinksntreats.com/sitemap.xml
