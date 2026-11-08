@@ -135,46 +135,54 @@
     text-decoration: none;
 }
 
-/* Overlapping circles of her treats, like a reviewer avatar stack */
+/* Overlapping reviewer initials, like an avatar stack */
 .hero__avatars {
     display: flex;
     flex-shrink: 0;
 }
 
-.hero__avatars picture,
+.hero__avatar,
 .hero__avatar-count {
+    display: grid;
+    place-items: center;
     width: 44px;
     height: 44px;
     border: 3px solid var(--white);
     border-radius: 50%;
-    overflow: hidden;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     box-shadow: 0 3px 8px rgba(74, 6, 36, 0.3);
 }
 
-.hero__avatars picture + picture,
+.hero__avatar + .hero__avatar,
 .hero__avatar-count {
-    margin-left: -14px;
+    margin-left: -8px;
 }
 
-.hero__avatars img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.hero__avatar--pink {
+    background: var(--pink-deep);
+}
+
+.hero__avatar--blue {
+    background: var(--blue-text);
+}
+
+.hero__avatar--ink {
+    background: var(--ink);
 }
 
 .hero__avatar-count {
-    display: grid;
-    place-items: center;
     background: var(--yellow);
     color: var(--ink);
-    font-family: var(--font-display);
     font-size: 0.75rem;
-    font-weight: 700;
     letter-spacing: -0.01em;
 }
 
-/* Hide one treat on the smallest phones so the row fits */
-.hero__avatars picture:nth-child(4) {
+/* Hide one circle on the smallest phones so the row fits */
+.hero__avatar:nth-child(4) {
     display: none;
 }
 
@@ -191,8 +199,8 @@
 }
 
 @media (min-width: 380px) {
-    .hero__avatars picture:nth-child(4) {
-        display: block;
+    .hero__avatar:nth-child(4) {
+        display: grid;
     }
 }
 
