@@ -67,6 +67,7 @@
     --pink-dark: #7a1842;
     --pink-tint: #fbe9ef;
     --blush: #fdf2f6;          /* hero background */
+    --sky: #eaf4fc;            /* baby blue: services background only */
     --yellow: #ffcd4d;        /* accent: stars, badges, primary hero button */
     --yellow-deep: #f5b301;
     --cream: #fff6ec;
@@ -954,6 +955,12 @@ button {
     --kicker-bg: var(--blush);
 }
 
+/* On the baby-blue services section */
+.kicker--sky {
+    --kicker-bg: var(--sky);
+    --kicker-stroke: rgba(90, 160, 215, 0.45);
+}
+
 /* On deep berry sections */
 .kicker--dark {
     --kicker-bg: var(--ink);
@@ -1008,6 +1015,10 @@ button {
 
 .section-divider--from-blush .section-divider__front {
     fill: var(--blush);
+}
+
+.section-divider--from-sky .section-divider__front {
+    fill: var(--sky);
 }
 
 .section-divider--from-dark .section-divider__front {

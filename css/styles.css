@@ -745,7 +745,7 @@
     isolation: isolate;
     overflow: hidden;
     padding-block: calc(var(--space-section) + var(--wave-height) * 0.6) var(--space-section);
-    background: var(--blush);
+    background: var(--sky);
 }
 
 /* Soft diagonal candy stripes that fade out before the bottom, so the
@@ -755,7 +755,7 @@
     position: absolute;
     inset: 0;
     z-index: -2;
-    background: repeating-linear-gradient(135deg, rgba(176, 40, 92, 0.035) 0 18px, transparent 18px 46px);
+    background: repeating-linear-gradient(135deg, rgba(90, 160, 215, 0.08) 0 18px, transparent 18px 46px);
     -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 96%);
     mask-image: linear-gradient(to bottom, #000 70%, transparent 96%);
     pointer-events: none;
