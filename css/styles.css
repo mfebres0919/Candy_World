@@ -3,14 +3,14 @@
    ========================================================= */
 
 /* ---------- Hero ----------
-   Candy-pink background with wavy layers and candy doodles. Text on
+   Light blush background with soft waves and candy doodles. Text on
    the left, the truck floating on the right and driving back and
    forth. On phones the truck sits under the text. */
 .hero {
     position: relative;
     overflow: hidden;
-    background: var(--pink);
-    color: var(--white);
+    background: var(--blush);
+    color: var(--ink);
     isolation: isolate;
 }
 
@@ -44,7 +44,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.16;
+    opacity: 0.12;
 }
 
 .hero__inner {
@@ -72,7 +72,7 @@
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    box-shadow: 0 4px 0 rgba(143, 14, 71, 0.35);
+    box-shadow: 0 3px 10px rgba(122, 24, 66, 0.1);
 }
 
 .hero__eyebrow svg {
@@ -84,17 +84,17 @@
     font-size: clamp(2.15rem, 8vw + 0.55rem, 5.1rem);
     line-height: 1.02;
     letter-spacing: -0.01em;
-    text-shadow: 0 4px 0 rgba(143, 14, 71, 0.55);
 }
 
 .hero__title-accent {
     display: block;
-    color: var(--yellow);
+    color: var(--pink);
 }
 
 .hero__text {
     max-width: 32rem;
     margin: 1.1rem auto 0;
+    color: var(--ink-soft);
     font-size: clamp(1rem, 0.4vw + 0.95rem, 1.15rem);
 }
 
@@ -154,7 +154,7 @@
     font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 0.02em;
-    box-shadow: 0 3px 8px rgba(74, 6, 36, 0.3);
+    box-shadow: 0 3px 8px rgba(70, 14, 40, 0.3);
 }
 
 .hero__avatar + .hero__avatar,
@@ -195,7 +195,7 @@
 .hero__stars {
     display: flex;
     gap: 2px;
-    color: var(--yellow);
+    color: var(--yellow-deep);
 }
 
 @media (min-width: 380px) {
@@ -210,13 +210,13 @@
 
 .hero__rating-text {
     text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.5);
+    text-decoration-color: rgba(43, 19, 56, 0.3);
     text-underline-offset: 4px;
     transition: text-decoration-color var(--speed) var(--ease);
 }
 
 .hero__rating:hover .hero__rating-text {
-    text-decoration-color: var(--yellow);
+    text-decoration-color: var(--pink);
 }
 
 /* ---------- The truck ---------- */
@@ -245,7 +245,7 @@
 
 .hero__blob-outline {
     fill: none;
-    stroke: var(--white);
+    stroke: var(--pink);
     stroke-width: 0.6;
     stroke-linecap: round;
     stroke-dasharray: 0.1 1.6;
@@ -291,7 +291,7 @@
     height: 9%;
     z-index: -1;
     border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(74, 6, 36, 0.45) 0%, rgba(74, 6, 36, 0) 70%);
+    background: radial-gradient(ellipse at center, rgba(70, 14, 40, 0.3) 0%, rgba(70, 14, 40, 0) 70%);
 }
 
 @keyframes truck-drive {
@@ -304,7 +304,7 @@
     }
 }
 
-/* ---------- Wavy bottom edge: blue ribbon, then cream ---------- */
+/* ---------- Wavy bottom edge: blue ribbon, then white ---------- */
 .hero__edge {
     position: absolute;
     left: 0;
@@ -401,7 +401,7 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding-block: clamp(3rem, 6vw, 5rem) var(--space-section);
+    padding-top: clamp(3rem, 6vw, 5rem);
     background: var(--white) url("../images/decor/sprinkles.svg") repeat;
     background-size: 260px;
 }
@@ -520,17 +520,17 @@
     flex-direction: column;
     flex: 0 0 100%;
     scroll-snap-align: start;
-    border: 1px solid rgba(216, 27, 107, 0.14);
+    border: 1px solid rgba(176, 40, 92, 0.14);
     border-radius: 1.5rem;
     background: var(--pink-tint);
-    box-shadow: 0 8px 18px rgba(143, 14, 71, 0.12);
+    box-shadow: 0 8px 18px rgba(122, 24, 66, 0.12);
     overflow: hidden;
     transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
 }
 
 .treat-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 22px rgba(143, 14, 71, 0.18);
+    box-shadow: 0 12px 22px rgba(122, 24, 66, 0.18);
 }
 
 .treat-card__media {
@@ -563,7 +563,7 @@
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    box-shadow: 0 3px 0 rgba(143, 14, 71, 0.2);
+    box-shadow: 0 3px 0 rgba(122, 24, 66, 0.2);
 }
 
 .treat-card__body {
@@ -738,11 +738,432 @@
     }
 }
 
+/* ---------- Services ----------
+   Pale sky background, a big outlined word behind the heading, and
+   three white cards with an inset photo and an icon badge. */
+.services {
+    padding-top: var(--space-section);
+    background: #eef6fd;
+}
+
+.services__header {
+    position: relative;
+    max-width: 58rem;
+    margin: 0 auto clamp(2rem, 4vw, 3rem);
+    padding-top: clamp(1rem, 3vw, 2.25rem);
+    text-align: center;
+}
+
+/* Outlined "OUR SERVICES" sitting behind the small label */
+.services__outline {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 9vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(90, 165, 224, 0.45);
+    pointer-events: none;
+    user-select: none;
+}
+
+.services__eyebrow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.85rem;
+    border-radius: var(--radius-pill);
+    background: #eef6fd;
+    color: var(--ink);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.services__eyebrow svg {
+    color: var(--pink);
+}
+
+.services__title {
+    position: relative;
+    margin-top: clamp(0.75rem, 2vw, 1.25rem);
+    font-size: clamp(2rem, 3vw + 1rem, 3.1rem);
+    color: var(--ink);
+}
+
+.services__title-accent {
+    color: var(--pink);
+}
+
+.services__grid {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 520px;
+    margin-inline: auto;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.9rem 0.9rem 1.5rem;
+    border-radius: 1.5rem;
+    background: var(--white);
+    box-shadow: 0 10px 28px rgba(30, 80, 130, 0.08);
+    transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(30, 80, 130, 0.14);
+}
+
+.service-card__media {
+    position: relative;
+    aspect-ratio: 760 / 540;
+    border-radius: 1.1rem;
+    background: var(--pink-tint);
+    overflow: hidden;
+}
+
+.service-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+}
+
+.service-card:hover .service-card__media img {
+    transform: scale(1.05);
+}
+
+.service-card__icon {
+    position: absolute;
+    top: 0.85rem;
+    left: 0.85rem;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--ink);
+    box-shadow: 0 4px 10px rgba(43, 19, 56, 0.18);
+}
+
+.service-card__title {
+    margin: 1.2rem 0.35rem 0;
+    font-size: 1.4rem;
+}
+
+.service-card__text {
+    margin: 0.5rem 0.35rem 1.25rem;
+    color: var(--ink-soft);
+    font-size: 0.975rem;
+}
+
+.service-card__btn {
+    align-self: flex-start;
+    min-height: 46px;
+    margin: auto 0.35rem 0;
+    padding: 0.6rem 1.35rem;
+    font-size: 1rem;
+    box-shadow: none;
+}
+
+@media (min-width: 900px) {
+    .services__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        max-width: none;
+    }
+}
+
+/* ---------- About ----------
+   Big truck photo on the left. On the right: a tilted "Who We Are"
+   chip, a large berry heading, tabs for story / mission / truck,
+   the review line, and a button. On desktop a column on the far
+   right holds an outlined 5.0 rating and a team photo. */
+.about {
+    position: relative;
+    padding-block: var(--space-section);
+    background: var(--white);
+    overflow: hidden;
+}
+
+.about__doodle {
+    display: none;
+    position: absolute;
+    left: 2.5%;
+    top: 45%;
+    color: var(--pink);
+    opacity: 0.6;
+    animation: doodle-sway 6s ease-in-out infinite alternate;
+}
+
+@keyframes doodle-sway {
+    from {
+        transform: rotate(-10deg);
+    }
+
+    to {
+        transform: rotate(10deg);
+    }
+}
+
+.about__grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.about__media {
+    order: 2;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: var(--pink-tint);
+}
+
+.about__media picture,
+.about__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about__content {
+    display: contents;
+}
+
+.about__header {
+    order: 1;
+}
+
+.about__chip {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 0.35rem;
+    background: var(--yellow);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+}
+
+.about__title {
+    margin-top: 0.75rem;
+    color: var(--pink);
+    font-size: clamp(2.3rem, 4vw + 1rem, 4rem);
+    line-height: 1.02;
+    text-transform: uppercase;
+}
+
+.about__title-chip {
+    display: inline-block;
+    margin-top: 0.6rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.35rem;
+    background: var(--pink-tint);
+    color: var(--pink-dark);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+    transform: rotate(4deg);
+}
+
+.about__main {
+    order: 3;
+}
+
+/* Tabs look like the reference: active in berry, the others faded */
+.about__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.9rem;
+}
+
+.about__tab {
+    position: relative;
+    min-height: 44px;
+    padding: 0.25rem 0;
+    border: 0;
+    background: none;
+    color: #a35a7a;           /* faded berry that still passes 4.5:1 */
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color var(--speed) var(--ease);
+}
+
+.about__tab:hover {
+    color: var(--pink-deep);
+}
+
+.about__tab[aria-selected="true"] {
+    color: var(--pink);
+}
+
+.about__panel {
+    max-width: 34rem;
+    margin-top: 0.75rem;
+    color: var(--ink-soft);
+}
+
+.about__panel:focus-visible {
+    border-radius: 0.5rem;
+}
+
+.about__reviews {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.75rem;
+    margin-top: 1.5rem;
+    color: var(--pink-dark);
+    font-weight: 500;
+}
+
+.about__stars {
+    display: flex;
+    gap: 2px;
+    color: var(--yellow-deep);
+}
+
+.about__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    margin-top: 1.75rem;
+}
+
+.about__owner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--pink-dark);
+    font-size: 0.9375rem;
+    line-height: 1.3;
+}
+
+.about__owner strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+}
+
+.about__owner span {
+    display: block;
+}
+
+.about__aside {
+    order: 4;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: end;
+    gap: 1.25rem;
+}
+
+.about__stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.about__stat-label {
+    color: var(--pink-dark);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Outlined number, like the "1969" in the reference */
+.about__stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 10vw, 7rem);
+    font-weight: 600;
+    line-height: 0.95;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--pink);
+}
+
+.about__team {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.about__team img {
+    width: 100%;
+    aspect-ratio: 480 / 340;
+    object-fit: cover;
+}
+
+@media (min-width: 480px) {
+    .about__tabs {
+        gap: 0.25rem 1.25rem;
+    }
+
+    .about__tab {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .about__doodle {
+        display: block;
+    }
+
+    .about__grid {
+        grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+        gap: clamp(2.5rem, 5vw, 4.5rem);
+        align-items: stretch;
+    }
+
+    .about__media {
+        order: 0;
+        min-height: 560px;
+    }
+
+    .about__content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 210px;
+        grid-template-rows: auto 1fr;
+        column-gap: 2rem;
+    }
+
+    .about__header {
+        grid-column: 1 / -1;
+    }
+
+    .about__main {
+        align-self: start;
+        margin-top: 1.75rem;
+    }
+
+    .about__aside {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: stretch;
+    }
+}
+
 /* Reduced motion: the truck parks */
 @media (prefers-reduced-motion: reduce) {
     .hero__truck,
     .hero__blob,
-    .treats__blob {
+    .treats__blob,
+    .about__doodle {
         animation: none;
     }
 }

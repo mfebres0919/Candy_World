@@ -62,13 +62,14 @@
 /* ---------- Design tokens ---------- */
 :root {
     /* Three brand colors pulled from the logo, plus neutrals */
-    --pink: #d81b6b;          /* main color, 4.9:1 behind white text */
-    --pink-deep: #b8125a;
-    --pink-dark: #8f0e47;
-    --pink-tint: #fde6ef;
-    --blue: #1e88e5;          /* decorative only */
+    --pink: #b0285c;          /* berry, main color, 6.3:1 behind white text */
+    --pink-deep: #962050;
+    --pink-dark: #7a1842;
+    --pink-tint: #fbe9ef;
+    --blush: #fdf2f6;          /* hero background */
+    --blue: #5aa5e0;          /* soft sky blue, decorative only */
     --blue-text: #1565c0;     /* 5.7:1 on white, for blue text */
-    --yellow: #ffc93c;        /* accent: stars, badges, primary hero button */
+    --yellow: #ffcd4d;        /* accent: stars, badges, primary hero button */
     --yellow-deep: #f5b301;
     --cream: #fff6ec;
     --white: #ffffff;
@@ -263,7 +264,19 @@ button {
     --btn-fill: var(--white);
 }
 
-/* Outline on pink backgrounds */
+/* Berry outline on light backgrounds */
+.btn--outline {
+    border-color: var(--pink);
+    color: var(--pink);
+    --btn-fill: var(--pink);
+}
+
+.btn--outline:hover,
+.btn--outline:focus-visible {
+    color: var(--white);
+}
+
+/* Outline on dark or pink backgrounds */
 .btn--outline-light {
     border-color: var(--white);
     color: var(--white);
@@ -428,7 +441,7 @@ button {
     border: 0;
     border-radius: 50%;
     background: var(--pink);
-    box-shadow: 0 4px 12px rgba(216, 27, 107, 0.35);
+    box-shadow: 0 4px 12px rgba(176, 40, 92, 0.35);
     cursor: pointer;
     transition: background-color var(--speed) var(--ease);
 }
@@ -759,6 +772,42 @@ button {
     }
 }
 
+/* ---------- Section dividers ----------
+   The same two-layer wave as the bottom of the hero. It sits at the
+   bottom of a section: the front layer matches the NEXT section's
+   background, and the back layer is a thin colored ribbon. */
+.has-divider {
+    position: relative;
+    padding-bottom: calc(var(--space-section) + clamp(36px, 6vw, 90px));
+}
+
+.section-divider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 1;
+    width: 100%;
+    height: clamp(44px, 7vw, 110px);
+    pointer-events: none;
+}
+
+.section-divider--sky .section-divider__back {
+    fill: #ffe39a;
+}
+
+.section-divider--sky .section-divider__front {
+    fill: #eef6fd;
+}
+
+.section-divider--white .section-divider__back {
+    fill: #f6d6e2;
+}
+
+.section-divider--white .section-divider__front {
+    fill: var(--white);
+}
+
 /* ---------- Back to top ---------- */
 .back-to-top {
     position: fixed;
@@ -772,7 +821,7 @@ button {
     border-radius: 50%;
     background: var(--pink);
     color: var(--white);
-    box-shadow: 0 8px 20px rgba(143, 14, 71, 0.35);
+    box-shadow: 0 8px 20px rgba(122, 24, 66, 0.35);
     overflow: hidden;
     isolation: isolate;
     opacity: 0;

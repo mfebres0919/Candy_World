@@ -21,7 +21,7 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#d81b6b">
+    <meta name="theme-color" content="#b0285c">
 
     <!-- Above-the-fold assets: heading font, body font and the truck -->
     <link rel="preload" href="fonts/fredoka-v17-latin-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -184,13 +184,13 @@
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero__bg" aria-hidden="true">
                 <svg class="hero__waves hero__waves--wide" viewBox="0 0 1440 800" preserveAspectRatio="none" focusable="false">
-                    <path fill="#c8165f" d="M780 0C700 150 930 250 850 410S960 690 850 800H1440V0Z"/>
-                    <path fill="#b8125a" d="M990 0C920 140 1120 250 1050 400S1150 680 1060 800H1440V0Z"/>
-                    <path fill="none" stroke="#ffc93c" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 16" opacity=".55" d="M690 0C610 150 840 250 760 410S870 690 760 800"/>
+                    <path fill="#fae3ec" d="M780 0C700 150 930 250 850 410S960 690 850 800H1440V0Z"/>
+                    <path fill="#f6d6e2" d="M990 0C920 140 1120 250 1050 400S1150 680 1060 800H1440V0Z"/>
+                    <path fill="none" stroke="#b0285c" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 16" opacity=".3" d="M690 0C610 150 840 250 760 410S870 690 760 800"/>
                 </svg>
                 <svg class="hero__waves hero__waves--narrow" viewBox="0 0 1440 800" preserveAspectRatio="none" focusable="false">
-                    <path fill="#c8165f" d="M0 140C260 30 520 220 760 120S1200 20 1440 110V800H0Z"/>
-                    <path fill="#b8125a" d="M0 330C300 230 560 400 820 310S1220 240 1440 300V800H0Z"/>
+                    <path fill="#fae3ec" d="M0 140C260 30 520 220 760 120S1200 20 1440 110V800H0Z"/>
+                    <path fill="#f6d6e2" d="M0 330C300 230 560 400 820 310S1220 240 1440 300V800H0Z"/>
                 </svg>
                 <img class="hero__doodles" src="images/decor/candy-doodles.svg" alt="" width="1440" height="820" decoding="async">
             </div>
@@ -217,7 +217,7 @@
                             Shop Treats
                             <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                         </a>
-                        <a class="btn btn--outline-light" href="shop/#menu">View Our Menu</a>
+                        <a class="btn btn--outline" href="shop/#menu">View Our Menu</a>
                     </div>
 
                     <a class="hero__rating" href="https://www.google.com/maps/search/?api=1&amp;query=Candy+World+Drinks+N+Treats+3300+Centerville+Hwy+Snellville+GA+30039" target="_blank" rel="noopener">
@@ -266,7 +266,7 @@
         </section>
 
         <!-- ===== Featured treats ===== -->
-        <section class="treats" id="treats" aria-labelledby="treats-title">
+        <section class="treats has-divider" id="treats" aria-labelledby="treats-title">
             <svg class="treats__blob treats__blob--yellow" viewBox="0 0 50 46" aria-hidden="true" focusable="false"><path fill="currentColor" d="M48.46 25.91C48.47 30.97 48.44 36.66 44.95 39.51 41.46 42.36 38.13 42.4 33.19 43.81 28.26 45.22 26.86 49.79 19.79 48.68 12.72 47.57 8.38 37.76 6.1 34.26 3.81 30.75.87 28.36 1.25 23.7 1.63 19.03 5.27 15.95 7.19 12.12 9.11 8.3 12.11 5.7 16.45 4.66 20.79 3.61 22.65 3.88 28.85 4.33 35.05 4.78 41.37 8.71 43.77 13.03 46.16 17.34 48.44 20.86 48.46 25.91Z"/></svg>
             <svg class="treats__blob treats__blob--blue" viewBox="0 0 50 40" aria-hidden="true" focusable="false"><path fill="currentColor" d="M48.46 25.91C48.47 30.97 48.44 36.66 44.95 39.51 41.46 42.36 38.13 42.4 33.19 43.81 28.26 45.22 26.86 49.79 19.79 48.68 12.72 47.57 8.38 37.76 6.1 34.26 3.81 30.75.87 28.36 1.25 23.7 1.63 19.03 5.27 15.95 7.19 12.12 9.11 8.3 12.11 5.7 16.45 4.66 20.79 3.61 22.65 3.88 28.85 4.33 35.05 4.78 41.37 8.71 43.77 13.03 46.16 17.34 48.44 20.86 48.46 25.91Z"/></svg>
             <div class="container">
@@ -415,6 +415,140 @@
                         View Full Menu
                         <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                     </a>
+                </div>
+            </div>
+            <svg class="section-divider section-divider--sky" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path class="section-divider__back" d="M0 38C240 98 480 0 720 40S1200 104 1440 28V120H0Z"/>
+                <path class="section-divider__front" d="M0 72C260 122 500 30 760 70S1220 124 1440 62V120H0Z"/>
+            </svg>
+        </section>
+
+        <!-- ===== Services ===== -->
+        <section class="services has-divider" id="services" aria-labelledby="services-title">
+            <div class="container">
+                <header class="services__header">
+                    <span class="services__outline" aria-hidden="true">Our Services</span>
+                    <p class="services__eyebrow">
+                        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M12 15v7"/></svg>
+                        What We Offer
+                    </p>
+                    <h2 class="services__title" id="services-title"><span class="services__title-accent">Sweet services</span> for every occasion</h2>
+                </header>
+
+                <ul class="services__grid">
+                    <li class="service-card">
+                        <div class="service-card__media">
+                            <picture>
+                                <source srcset="images/services/book-the-truck.webp" type="image/webp">
+                                <img src="images/services/book-the-truck.jpg" alt="Customers lined up at the Candy World truck" width="680" height="484" loading="lazy" decoding="async">
+                            </picture>
+                            <span class="service-card__icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                            </span>
+                        </div>
+                        <h3 class="service-card__title">Book the Truck</h3>
+                        <p class="service-card__text">Birthday parties, student events, corporate events, festivals and carnivals. Our LED-wrapped trailer glows after dark to keep the party going.</p>
+                        <a class="btn btn--yellow service-card__btn" href="services/book-the-truck/">Book the Truck <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </li>
+                    <li class="service-card">
+                        <div class="service-card__media">
+                            <picture>
+                                <source srcset="images/services/catering-treats.webp" type="image/webp">
+                                <img src="images/services/catering-treats.jpg" alt="Chocolate pretzel rods with Oreo and nut toppings" width="760" height="540" loading="lazy" decoding="async">
+                            </picture>
+                            <span class="service-card__icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18"/><path d="M5 11a7 7 0 0 1 14 0"/><path d="M12 4V3"/><path d="M4 15h16l-1.5 4h-13z"/></svg>
+                            </span>
+                        </div>
+                        <h3 class="service-card__title">Catering</h3>
+                        <p class="service-card__text">Treat tables and party orders made for your event, including catering-only favorites like chocolate pretzel rods and Rice Krispie pops.</p>
+                        <a class="btn btn--yellow service-card__btn" href="services/catering/">Plan Catering <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </li>
+                    <li class="service-card">
+                        <div class="service-card__media">
+                            <picture>
+                                <source srcset="images/services/shop-and-ship.webp" type="image/webp">
+                                <img src="images/services/shop-and-ship.jpg" alt="Rainbow candy apple with fruity candy coating" width="760" height="540" loading="lazy" decoding="async">
+                            </picture>
+                            <span class="service-card__icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+                            </span>
+                        </div>
+                        <h3 class="service-card__title">Shop &amp; Ship</h3>
+                        <p class="service-card__text">Order candy apples, treats and merch online. Have them shipped to your door or pick them up at our Snellville storefront.</p>
+                        <a class="btn btn--yellow service-card__btn" href="shop/">Shop Online <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </li>
+                </ul>
+            </div>
+            <svg class="section-divider section-divider--white" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path class="section-divider__back" d="M0 38C240 98 480 0 720 40S1200 104 1440 28V120H0Z"/>
+                <path class="section-divider__front" d="M0 72C260 122 500 30 760 70S1220 124 1440 62V120H0Z"/>
+            </svg>
+        </section>
+
+        <!-- ===== About ===== -->
+        <section class="about" id="about" aria-labelledby="about-title">
+            <svg class="about__doodle" aria-hidden="true" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6.5"/><path d="M12 9m-4 0a4 4 0 1 0 8 0a2.5 2.5 0 1 0-5 0a1 1 0 1 0 2 0"/><path d="M12 15.5V23"/></svg>
+
+            <div class="container about__grid">
+                <div class="about__media">
+                    <picture>
+                        <source media="(max-width: 1023px)" srcset="images/about/candy-world-truck-m.webp" type="image/webp">
+                        <source srcset="images/about/candy-world-truck.webp" type="image/webp">
+                        <img src="images/about/candy-world-truck.jpg" alt="The Candy World truck with its menu boards" width="700" height="866" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+
+                <div class="about__content">
+                    <header class="about__header">
+                        <p class="about__chip">Who We Are</p>
+                        <h2 class="about__title" id="about-title">
+                            A Sweet Spot for Every Celebration
+                            <span class="about__title-chip">Fun. Activities. Food.</span>
+                        </h2>
+                    </header>
+
+                    <div class="about__main">
+                        <div class="about__tabs" role="tablist" aria-label="About Candy World">
+                            <button class="about__tab" type="button" role="tab" id="about-tab-story" aria-selected="true" aria-controls="about-panel-story">Our Story</button>
+                            <button class="about__tab" type="button" role="tab" id="about-tab-mission" aria-selected="false" aria-controls="about-panel-mission" tabindex="-1">Our Mission</button>
+                            <button class="about__tab" type="button" role="tab" id="about-tab-truck" aria-selected="false" aria-controls="about-panel-truck" tabindex="-1">The Truck</button>
+                        </div>
+
+                        <div class="about__panel" role="tabpanel" id="about-panel-story" aria-labelledby="about-tab-story" tabindex="0">
+                            <p>Candy World Drinks N' Treats is your favorite candy store and food truck. Our unique take on sweets and treats, infused with creativity and candy, is a delight to guests at every event we're honored to be part of.</p>
+                        </div>
+                        <div class="about__panel" role="tabpanel" id="about-panel-mission" aria-labelledby="about-tab-mission" tabindex="0" hidden>
+                            <p>We specialize in concession treats infused with creativity and candy, served through a customer-centric, immersive experience.</p>
+                        </div>
+                        <div class="about__panel" role="tabpanel" id="about-panel-truck" aria-labelledby="about-tab-truck" tabindex="0" hidden>
+                            <p>Book us for birthday parties, student events, corporate events, outdoor festivals and carnivals. The fun doesn't stop when night falls: our LED-covered, custom-wrapped trailer glows in the dark to keep the party going!</p>
+                        </div>
+
+                        <p class="about__reviews">
+                            <span class="about__stars" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg></span>
+                            <span>Loved by <strong>2,300+</strong> Google reviewers</span>
+                        </p>
+
+                        <div class="about__actions">
+                            <a class="btn btn--pink" href="about/">Our Story <span class="visually-hidden">: about Candy World</span></a>
+                            <p class="about__owner">
+                                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M12 9m-3 0a3 3 0 1 0 6 0a1.5 1.5 0 1 0-3 0"/><path d="M12 15v7"/></svg>
+                                <span><strong>Jessica Jackson</strong> Owner</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about__aside">
+                        <p class="about__stat">
+                            <span class="about__stat-label">Google rating</span>
+                            <span class="about__stat-number">5.0</span>
+                        </p>
+                        <picture class="about__team">
+                            <source srcset="images/about/candy-world-team.webp" type="image/webp">
+                            <img src="images/about/candy-world-team.jpg" alt="The Candy World team in front of the truck" width="480" height="340" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
                 </div>
             </div>
         </section>
