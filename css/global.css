@@ -842,6 +842,48 @@ button {
     }
 }
 
+/* ---------- Form fields ----------
+   Visible labels above each field (placeholders alone aren't
+   accessible). */
+.field {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.field__label {
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.field__input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.7rem 0.95rem;
+    border: 1.5px solid rgba(59, 13, 34, 0.18);
+    border-radius: 0.75rem;
+    background: var(--white);
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    transition: border-color var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+}
+
+.field__input:hover {
+    border-color: rgba(176, 40, 92, 0.45);
+}
+
+.field__input:focus {
+    outline: none;
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px rgba(176, 40, 92, 0.15);
+}
+
+.field__input--area {
+    min-height: 140px;
+    resize: vertical;
+}
+
 /* ---------- Section kicker ----------
    A big outlined word sits behind a small label, like a stamp:
    "OUR SERVICES" behind "What We Offer". Used above every section
@@ -960,6 +1002,10 @@ button {
 
 .section-divider--from-blush .section-divider__front {
     fill: var(--blush);
+}
+
+.section-divider--from-dark .section-divider__front {
+    fill: var(--ink);
 }
 
 /* ---------- Back to top ---------- */

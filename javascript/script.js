@@ -488,3 +488,42 @@
     show(0);
     restart();
 })();
+
+
+/* ---------- Google map ----------
+   The map is heavy, so it only loads when the visitor scrolls near
+   it. Until then (or without JavaScript) a link opens Google Maps. */
+(function () {
+    "use strict";
+
+    var box = document.querySelector(".contact__map[data-map-src]");
+
+    if (!box) {
+        return;
+    }
+
+    function load() {
+        var frame = document.createElement("iframe");
+        frame.src = box.getAttribute("data-map-src");
+        frame.title = "Map showing Candy World at 3300 Centerville Hwy, Snellville, GA";
+        frame.loading = "lazy";
+        frame.referrerPolicy = "no-referrer-when-downgrade";
+        frame.allowFullscreen = true;
+        box.appendChild(frame);
+        box.removeAttribute("data-map-src");
+    }
+
+    if (!("IntersectionObserver" in window)) {
+        load();
+        return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+            observer.disconnect();
+            load();
+        }
+    }, { rootMargin: "300px 0px" });
+
+    observer.observe(box);
+})();
