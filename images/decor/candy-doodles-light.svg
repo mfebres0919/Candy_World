@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 820" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <g id="pop"><circle r="22"/><path d="M0 0m-13 0a13 13 0 1 0 26 0a8 8 0 1 0-16 0a4 4 0 1 0 8 0"/><path d="M0 22v46"/></g>
+    <g id="wrap"><rect x="-20" y="-13" width="40" height="26" rx="13"/><path d="M-20 0l-16-12v24zM20 0l16-12v24z"/><path d="M-6-13l-6 26M6-13l-6 26"/></g>
+    <g id="star"><path d="M0-14l4 10 10 1-8 7 3 10-9-6-9 6 3-10-8-7 10-1z"/></g>
+    <g id="heart"><path d="M0 12C-16 2-16-12-6-12c3 0 5 2 6 4 1-2 3-4 6-4 10 0 10 14-6 24z"/></g>
+    <g id="cone"><path d="M-14-4h28L0 30z"/><path d="M-14-4a14 14 0 0 1 28 0"/><path d="M-7 6l12 8M-3 16l7 4"/></g>
+  </defs>
+  <use href="#pop" transform="translate(70 120) rotate(-18)"/>
+  <use href="#wrap" transform="translate(250 60) rotate(14)"/>
+  <use href="#star" transform="translate(470 140)"/>
+  <use href="#heart" transform="translate(640 50) rotate(-10)"/>
+  <use href="#cone" transform="translate(860 110) rotate(16)"/>
+  <use href="#star" transform="translate(1040 46) scale(.8)"/>
+  <use href="#pop" transform="translate(1250 90) rotate(20) scale(.9)"/>
+  <use href="#wrap" transform="translate(1390 250) rotate(-24)"/>
+  <use href="#heart" transform="translate(40 400) rotate(12)"/>
+  <use href="#star" transform="translate(130 640) scale(1.1)"/>
+  <use href="#cone" transform="translate(330 740) rotate(-14)"/>
+  <use href="#wrap" transform="translate(560 690) rotate(8) scale(.9)"/>
+  <use href="#pop" transform="translate(760 640) rotate(-8) scale(.8)"/>
+  <use href="#heart" transform="translate(980 760) rotate(-6)"/>
+  <use href="#star" transform="translate(1180 700)"/>
+  <use href="#heart" transform="translate(1380 560) rotate(14) scale(.9)"/>
+  <use href="#star" transform="translate(720 300) scale(.6)"/>
+  <g stroke-width="5">
+    <path d="M180 260l14 6M380 320l4 14M540 470l-12 8M920 260l14-4M1100 420l6 12M1330 420l-12 6M250 520l10 10M860 520l-14 2M1000 160l8 12M390 90l12-6M1180 290l-4 14M640 600l12 6"/>
+  </g>
+</svg>

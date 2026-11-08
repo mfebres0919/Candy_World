@@ -358,3 +358,133 @@
         });
     });
 })();
+
+
+/* ---------- Reviews slider ----------
+   One review at a time; the yellow card and the photo beside it
+   crossfade every 7 seconds.
+   Pauses on hover, keyboard focus, the pause button, or when off
+   screen, and never auto-plays for reduced-motion users. */
+(function () {
+    "use strict";
+
+    var slider = document.querySelector(".reviews__slider");
+
+    if (!slider) {
+        return;
+    }
+
+    var slides = Array.prototype.slice.call(slider.querySelectorAll(".review-card"));
+    var photos = Array.prototype.slice.call(document.querySelectorAll(".reviews__photo"));
+    var dotsWrap = slider.querySelector(".reviews__dots");
+    var pauseBtn = slider.querySelector(".reviews__pause");
+    var pauseLabel = pauseBtn.querySelector(".visually-hidden");
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var DELAY = 7000;
+    var current = 0;
+    var timer = null;
+    var userPaused = reduceMotion;
+    var hovered = false;
+    var focused = false;
+    var onScreen = false;
+    var dots = [];
+
+    if (slides.length < 2) {
+        pauseBtn.hidden = true;
+        return;
+    }
+
+    function show(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach(function (slide, i) {
+            slide.classList.toggle("is-active", i === current);
+        });
+        // The photo on the left changes with each review
+        photos.forEach(function (photo, i) {
+            photo.classList.toggle("is-active", i === current % photos.length);
+        });
+        dots.forEach(function (dot, i) {
+            if (i === current) {
+                dot.setAttribute("aria-current", "true");
+            } else {
+                dot.removeAttribute("aria-current");
+            }
+        });
+    }
+
+    function stop() {
+        clearInterval(timer);
+        timer = null;
+    }
+
+    function restart() {
+        stop();
+
+        if (!userPaused && !hovered && !focused && onScreen && !document.hidden) {
+            timer = setInterval(function () {
+                show(current + 1);
+            }, DELAY);
+        }
+    }
+
+    slides.forEach(function (slide, i) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "reviews__dot";
+        dot.innerHTML = '<span class="visually-hidden">Show review ' + (i + 1) + "</span>";
+        dot.addEventListener("click", function () {
+            show(i);
+            restart();
+        });
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+    });
+
+    pauseBtn.addEventListener("click", function () {
+        userPaused = !userPaused;
+        pauseBtn.setAttribute("aria-pressed", String(userPaused));
+        pauseLabel.textContent = userPaused ? "Play the reviews" : "Pause the reviews";
+        restart();
+    });
+
+    slider.addEventListener("mouseenter", function () {
+        hovered = true;
+        restart();
+    });
+
+    slider.addEventListener("mouseleave", function () {
+        hovered = false;
+        restart();
+    });
+
+    slider.addEventListener("focusin", function () {
+        focused = true;
+        restart();
+    });
+
+    slider.addEventListener("focusout", function (event) {
+        if (!slider.contains(event.relatedTarget)) {
+            focused = false;
+            restart();
+        }
+    });
+
+    document.addEventListener("visibilitychange", restart);
+
+    if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+            onScreen = entries[0].isIntersecting;
+            restart();
+        }, { threshold: 0.3 }).observe(slider);
+    } else {
+        onScreen = true;
+    }
+
+    if (reduceMotion) {
+        pauseBtn.setAttribute("aria-pressed", "true");
+        pauseLabel.textContent = "Play the reviews";
+    }
+
+    show(0);
+    restart();
+})();

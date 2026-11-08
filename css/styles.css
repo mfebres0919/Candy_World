@@ -166,8 +166,8 @@
     background: var(--pink-deep);
 }
 
-.hero__avatar--blue {
-    background: var(--blue-text);
+.hero__avatar--berry {
+    background: var(--pink);
 }
 
 .hero__avatar--ink {
@@ -210,7 +210,7 @@
 
 .hero__rating-text {
     text-decoration: underline;
-    text-decoration-color: rgba(43, 19, 56, 0.3);
+    text-decoration-color: rgba(59, 13, 34, 0.3);
     text-underline-offset: 4px;
     transition: text-decoration-color var(--speed) var(--ease);
 }
@@ -304,7 +304,7 @@
     }
 }
 
-/* ---------- Wavy bottom edge: blue ribbon, then white ---------- */
+/* ---------- Wavy bottom edge: yellow ribbon, then white ---------- */
 .hero__edge {
     position: absolute;
     left: 0;
@@ -316,7 +316,7 @@
 }
 
 .hero__edge-back {
-    fill: var(--blue);
+    fill: var(--yellow);
 }
 
 .hero__edge-front {
@@ -396,7 +396,7 @@
    track, so phones can swipe, and script.js pages through them
    every 5 seconds. */
 /* Background: a light sprinkle pattern on cream, plus two big soft
-   blobs (the hero's blob shape) in pale yellow and pale blue. */
+   blobs (the hero's blob shape) in pale yellow and pale berry. */
 .treats {
     position: relative;
     isolation: isolate;
@@ -415,9 +415,10 @@
     overflow: visible;
 }
 
+/* Phones: tucked mostly off the left edge so it stays clear of the heading */
 .treats__blob--yellow {
     top: -4%;
-    left: -16%;
+    left: -52%;
     width: min(620px, 72vw);
     height: auto;
     color: #ffe9ad;
@@ -425,13 +426,13 @@
     animation: blob-float-a 9s ease-in-out infinite alternate;
 }
 
-.treats__blob--blue {
+.treats__blob--berry {
     right: -18%;
     bottom: -8%;
     width: min(680px, 80vw);
     height: auto;
-    color: #d9ecfc;
-    filter: drop-shadow(0 18px 24px rgba(30, 136, 229, 0.18));
+    color: #f7dbe6;
+    filter: drop-shadow(0 18px 24px rgba(176, 40, 92, 0.16));
     animation: blob-float-b 11s ease-in-out -4s infinite alternate;
 }
 
@@ -455,12 +456,18 @@
     }
 }
 
+@media (min-width: 640px) {
+    .treats__blob--yellow {
+        left: -16%;
+    }
+}
+
 @media (min-width: 1024px) {
     .treats__blob--yellow {
         left: -8%;
     }
 
-    .treats__blob--blue {
+    .treats__blob--berry {
         right: -8%;
     }
 }
@@ -682,7 +689,7 @@
     width: 10px;
     height: 10px;
     border-radius: var(--radius-pill);
-    background: rgba(43, 19, 56, 0.22);
+    background: rgba(59, 13, 34, 0.22);
     transition: width var(--speed) var(--ease), background-color var(--speed) var(--ease);
 }
 
@@ -734,8 +741,39 @@
    Pale sky background, a big outlined word behind the heading, and
    three white cards with an inset photo and an icon badge. */
 .services {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     padding-top: var(--space-section);
-    background: #eef6fd;
+    /* Soft diagonal candy stripes on blush */
+    background:
+        repeating-linear-gradient(135deg, rgba(176, 40, 92, 0.035) 0 18px, transparent 18px 46px),
+        var(--blush);
+}
+
+/* Big outlined candy doodles that sway in the corners */
+.services__doodle {
+    position: absolute;
+    z-index: -1;
+    color: var(--pink);
+    opacity: 0.22;
+    pointer-events: none;
+}
+
+.services__doodle--pop {
+    top: 6%;
+    left: -2%;
+    width: clamp(110px, 14vw, 200px);
+    height: auto;
+    animation: doodle-sway 7s ease-in-out infinite alternate;
+}
+
+.services__doodle--wrap {
+    right: -1%;
+    bottom: 14%;
+    width: clamp(120px, 15vw, 220px);
+    height: auto;
+    animation: doodle-sway 9s ease-in-out -3s infinite alternate;
 }
 
 .services__header {
@@ -769,13 +807,13 @@
     padding: 0.9rem 0.9rem 1.5rem;
     border-radius: 1.5rem;
     background: var(--white);
-    box-shadow: 0 10px 28px rgba(30, 80, 130, 0.08);
+    box-shadow: 0 10px 28px rgba(122, 24, 66, 0.08);
     transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
 }
 
 .service-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 34px rgba(30, 80, 130, 0.14);
+    box-shadow: 0 16px 34px rgba(122, 24, 66, 0.14);
 }
 
 .service-card__media {
@@ -808,7 +846,7 @@
     border-radius: 50%;
     background: var(--yellow);
     color: var(--ink);
-    box-shadow: 0 4px 10px rgba(43, 19, 56, 0.18);
+    box-shadow: 0 4px 10px rgba(59, 13, 34, 0.18);
 }
 
 .service-card__title {
@@ -846,9 +884,38 @@
    right holds an outlined 5.0 rating and a team photo. */
 .about {
     position: relative;
-    padding-block: var(--space-section);
-    background: var(--white);
+    isolation: isolate;
+    padding-top: var(--space-section);
+    background: var(--white) url("../images/decor/sprinkles.svg") repeat;
+    background-size: 260px;
     overflow: hidden;
+}
+
+/* Berry dot grid peeking out from behind the photo */
+.about__dots {
+    position: absolute;
+    z-index: -1;
+    top: calc(var(--space-section) - 2.5rem);
+    left: max(0.5rem, calc((100vw - var(--container)) / 2 - 1rem));
+    width: clamp(160px, 22vw, 300px);
+    aspect-ratio: 1;
+    background-image: radial-gradient(rgba(176, 40, 92, 0.28) 2px, transparent 2.5px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+/* Soft yellow blob floating behind the right column */
+.about__blob {
+    position: absolute;
+    z-index: -1;
+    right: -10%;
+    bottom: 4%;
+    width: min(520px, 70vw);
+    height: auto;
+    color: #ffefc2;
+    filter: drop-shadow(0 18px 24px rgba(214, 150, 0, 0.14));
+    animation: blob-float-b 11s ease-in-out infinite alternate;
+    pointer-events: none;
 }
 
 .about__doodle {
@@ -876,11 +943,15 @@
     gap: 2rem;
 }
 
+/* A solid berry-pink rectangle offset behind the photo, like a
+   sticker's drop shadow */
 .about__media {
     order: 2;
+    margin-right: 14px;
     border-radius: 1.25rem;
     overflow: hidden;
     background: var(--pink-tint);
+    box-shadow: 14px 14px 0 #eeb7cb;
 }
 
 .about__media picture,
@@ -1072,12 +1143,12 @@
     -webkit-text-stroke: 1.5px var(--pink);
 }
 
-.about__team {
+.about__thumb {
     border-radius: 1rem;
     overflow: hidden;
 }
 
-.about__team img {
+.about__thumb img {
     width: 100%;
     aspect-ratio: 480 / 340;
     object-fit: cover;
@@ -1107,6 +1178,8 @@
     .about__media {
         order: 0;
         min-height: 560px;
+        margin: 0 22px 22px 0;
+        box-shadow: 22px 22px 0 #eeb7cb;
     }
 
     .about__content {
@@ -1133,12 +1206,296 @@
     }
 }
 
+/* ---------- Reviews ----------
+   Deep berry section (the brand's dark shade) with a faint dot
+   texture. Team photo on the left; on the right the kicker, heading,
+   intro and a yellow review card that crossfades every 7 seconds. */
+.reviews {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: var(--space-section);
+    /* Two soft berry glows on the deep berry base */
+    background:
+        radial-gradient(circle at 12% 18%, rgba(176, 40, 92, 0.55), transparent 42%),
+        radial-gradient(circle at 92% 88%, rgba(176, 40, 92, 0.45), transparent 40%),
+        var(--ink);
+    color: var(--white);
+}
+
+/* Background art: faint candy doodles plus a big blob that floats */
+.reviews__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.reviews__doodles {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.07;
+}
+
+.reviews__blob {
+    position: absolute;
+    right: -12%;
+    top: -18%;
+    width: min(560px, 70vw);
+    height: auto;
+    color: rgba(176, 40, 92, 0.35);
+    animation: blob-float-a 12s ease-in-out infinite alternate;
+}
+
+.reviews :focus-visible {
+    outline-color: var(--yellow);
+}
+
+.reviews__grid {
+    display: grid;
+    gap: 2.5rem;
+}
+
+/* Photos stack in one cell and crossfade along with the reviews */
+.reviews__media {
+    order: 2;
+    display: grid;
+    aspect-ratio: 600 / 520;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: var(--pink-dark);
+}
+
+.reviews__photo {
+    grid-area: 1 / 1;
+    display: block;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 0.8s var(--ease), transform 1.2s var(--ease);
+}
+
+.reviews__photo.is-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.reviews__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reviews__title {
+    margin-top: 0.5rem;
+    font-size: clamp(2rem, 2.6vw + 1rem, 3rem);
+}
+
+.reviews__title-accent {
+    color: var(--yellow);
+}
+
+.reviews__text {
+    max-width: 36rem;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.reviews__slider {
+    margin-top: 2rem;
+}
+
+/* Slides share one grid cell so the card never changes height */
+.reviews__slides {
+    display: grid;
+}
+
+.review-card {
+    position: relative;
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin: 0;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border-radius: 1.25rem;
+    background: var(--yellow);
+    color: var(--ink);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0s linear 0.4s;
+}
+
+.review-card.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.6s var(--ease) 0.2s, transform 0.6s var(--ease) 0.2s, visibility 0s;
+}
+
+.review-card__mark {
+    position: absolute;
+    right: 1.25rem;
+    top: 1.25rem;
+    color: rgba(176, 40, 92, 0.14);
+}
+
+.review-card__quote {
+    position: relative;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 0.6vw + 1rem, 1.3rem);
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.review-card__author {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.review-card__avatar {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    background: var(--pink);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+.review-card__name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.review-card__source {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--pink-dark);
+    font-size: 0.875rem;
+}
+
+.review-card__stars {
+    display: flex;
+    gap: 1px;
+    color: var(--pink);
+}
+
+.reviews__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 0.5rem;
+    margin-top: 1.25rem;
+}
+
+.reviews__dots {
+    display: flex;
+    align-items: center;
+}
+
+.reviews__dot {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.reviews__dot::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.35);
+    transition: width var(--speed) var(--ease), background-color var(--speed) var(--ease);
+}
+
+.reviews__dot[aria-current="true"] {
+    width: 34px;
+}
+
+.reviews__dot[aria-current="true"]::before {
+    width: 22px;
+    background: var(--yellow);
+}
+
+.reviews__pause {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    background: none;
+    color: var(--white);
+    cursor: pointer;
+    transition: border-color var(--speed) var(--ease), color var(--speed) var(--ease);
+}
+
+.reviews__pause:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+}
+
+.reviews__icon-play,
+.reviews__pause[aria-pressed="true"] .reviews__icon-pause {
+    display: none;
+}
+
+.reviews__pause[aria-pressed="true"] .reviews__icon-play {
+    display: block;
+}
+
+.reviews__all {
+    min-height: 46px;
+    margin-left: auto;
+    padding: 0.6rem 1.35rem;
+    font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .reviews__grid {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        align-items: center;
+        gap: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    .reviews__media {
+        order: 0;
+        align-self: stretch;
+        aspect-ratio: auto;
+        min-height: 560px;
+    }
+}
+
 /* Reduced motion: the truck parks */
 @media (prefers-reduced-motion: reduce) {
     .hero__truck,
     .hero__blob,
     .treats__blob,
-    .about__doodle {
+    .about__doodle,
+    .reviews__blob,
+    .services__doodle,
+    .about__blob {
         animation: none;
     }
 }
