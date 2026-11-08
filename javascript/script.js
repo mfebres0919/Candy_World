@@ -278,7 +278,9 @@
 
 /* ---------- About tabs ----------
    Our Story / Our Mission / The Truck. Click or use the arrow keys,
-   Home and End, following the standard ARIA tabs pattern. */
+   Home and End, following the standard ARIA tabs pattern. A berry bar
+   slides under the active tab, and the panels crossfade (CSS handles
+   the fade via the is-active class). */
 (function () {
     "use strict";
 
@@ -289,19 +291,47 @@
     }
 
     var tabs = Array.prototype.slice.call(tablist.querySelectorAll("[role='tab']"));
+    var indicator = tablist.querySelector(".about__tab-indicator");
+
+    function moveIndicator(tab) {
+        if (!indicator) {
+            return;
+        }
+
+        indicator.style.width = tab.offsetWidth + "px";
+        indicator.style.transform = "translate(" + tab.offsetLeft + "px, " + (tab.offsetTop + tab.offsetHeight - tablist.clientHeight + 6) + "px)";
+    }
 
     function select(tab, moveFocus) {
         tabs.forEach(function (other) {
             var selected = other === tab;
             other.setAttribute("aria-selected", String(selected));
             other.tabIndex = selected ? 0 : -1;
-            document.getElementById(other.getAttribute("aria-controls")).hidden = !selected;
+            document.getElementById(other.getAttribute("aria-controls")).classList.toggle("is-active", selected);
         });
+
+        moveIndicator(tab);
 
         if (moveFocus) {
             tab.focus();
         }
     }
+
+    function activeTab() {
+        return tablist.querySelector("[aria-selected='true']");
+    }
+
+    window.addEventListener("resize", function () {
+        moveIndicator(activeTab());
+    });
+
+    if (document.fonts) {
+        document.fonts.ready.then(function () {
+            moveIndicator(activeTab());
+        });
+    }
+
+    moveIndicator(activeTab());
 
     tabs.forEach(function (tab, index) {
         tab.addEventListener("click", function () {

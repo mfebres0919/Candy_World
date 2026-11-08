@@ -772,6 +772,79 @@ button {
     }
 }
 
+/* ---------- Section kicker ----------
+   A big outlined word sits behind a small label, like a stamp:
+   "OUR SERVICES" behind "What We Offer". Used above every section
+   heading. The label's background matches its section so it "cuts"
+   through the outline (set --kicker-bg on variants). */
+.kicker {
+    --kicker-bg: var(--white);
+    --kicker-stroke: rgba(176, 40, 92, 0.22);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.kicker__outline,
+.kicker__label {
+    grid-area: 1 / 1;
+}
+
+.kicker__outline {
+    max-width: 100%;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 11vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--kicker-stroke);
+    pointer-events: none;
+    user-select: none;
+}
+
+.kicker__label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.85rem;
+    border-radius: var(--radius-pill);
+    background: var(--kicker-bg);
+    color: var(--ink);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+@media (min-width: 480px) {
+    .kicker__label {
+        font-size: 0.8125rem;
+    }
+}
+
+.kicker__label svg {
+    color: var(--pink);
+}
+
+/* On the pale sky sections */
+.kicker--sky {
+    --kicker-bg: #eef6fd;
+    --kicker-stroke: rgba(90, 165, 224, 0.45);
+}
+
+/* Left-aligned layouts */
+.kicker--start {
+    justify-items: start;
+}
+
+.kicker--start .kicker__label {
+    margin-left: clamp(1.5rem, 6vw, 4rem);
+}
+
 /* ---------- Section dividers ----------
    The same two-layer wave as the bottom of the hero. It sits at the
    bottom of a section: the front layer matches the NEXT section's
