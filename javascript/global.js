@@ -152,3 +152,14 @@
 
     update();
 })();
+
+/* ---------- Footer year ---------- */
+(function () {
+    "use strict";
+
+    var year = document.querySelector(".footer__year");
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+})();

@@ -97,7 +97,12 @@
     box-sizing: border-box;
 }
 
+/* No white flashes when scrolling past the ends: the page doesn't
+   bounce where browsers allow it, and anything that does peek out is
+   deep berry to match the top bar and the footer. */
 html {
+    background: var(--ink);
+    overscroll-behavior-y: none;
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--nav-height) + 44px + 2.5rem);
@@ -111,7 +116,8 @@ body {
     font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.65;
-    overflow-x: hidden;
+    /* clip (not hidden) keeps the sticky header working */
+    overflow-x: clip;
 }
 
 h1,
@@ -1006,6 +1012,252 @@ button {
 
 .section-divider--from-dark .section-divider__front {
     fill: var(--ink);
+}
+
+/* ---------- Footer ----------
+   Deep berry, flowing in from the contact section with the shared
+   wave. A call-to-action strip, four columns, a giant outlined
+   "CANDY WORLD" wordmark and the legal row. */
+.footer {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-top: calc(var(--wave-height) + clamp(2.5rem, 5vw, 4rem));
+    background:
+        radial-gradient(circle at 85% 20%, rgba(176, 40, 92, 0.5), transparent 40%),
+        radial-gradient(circle at 5% 90%, rgba(176, 40, 92, 0.35), transparent 35%),
+        var(--ink);
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.footer :focus-visible {
+    outline-color: var(--yellow);
+}
+
+.footer__doodles {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.footer__cta {
+    display: grid;
+    justify-items: center;
+    gap: 1.25rem;
+    padding: clamp(1.5rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2.5rem);
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer__cta-title {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2vw + 1rem, 2.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.footer__cta-title span {
+    color: var(--yellow);
+}
+
+.footer__cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+/* Phones: Explore and Services side by side; brand and Visit Us full width */
+.footer__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.25rem 1.5rem;
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.footer__brand,
+.footer__grid > .footer__col:last-child {
+    grid-column: 1 / -1;
+}
+
+.footer__logo {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    background: var(--white);
+}
+
+.footer__logo img {
+    width: 170px;
+}
+
+.footer__tagline {
+    max-width: 22rem;
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+}
+
+.footer__social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+}
+
+.footer__social-link {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--pink);
+    color: var(--white);
+    overflow: hidden;
+    isolation: isolate;
+    transition: color var(--speed) var(--ease);
+}
+
+.footer__social-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--yellow);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform var(--speed) var(--ease);
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus-visible {
+    color: var(--ink);
+}
+
+.footer__social-link:hover::before,
+.footer__social-link:focus-visible::before {
+    transform: scaleY(1);
+}
+
+.footer__heading {
+    color: var(--yellow);
+    font-size: 1.15rem;
+}
+
+.footer__links {
+    display: grid;
+    gap: 0.15rem;
+    margin-top: 0.75rem;
+}
+
+.footer__links a {
+    display: inline-block;
+    padding-block: 0.4rem;
+    text-decoration: none;
+    transition: color var(--speed) var(--ease), transform var(--speed) var(--ease);
+}
+
+.footer__links a:hover {
+    color: var(--yellow);
+    transform: translateX(3px);
+}
+
+.footer__links--info a:hover {
+    transform: none;
+}
+
+.footer__hours {
+    padding-top: 0.4rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.875rem;
+}
+
+/* Giant outlined wordmark, the same look as the section kickers */
+.footer__wordmark {
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 10.5vw, 9.5rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.16);
+    user-select: none;
+}
+
+.footer__bottom {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 1.25rem;
+}
+
+.footer__legal a {
+    display: inline-block;
+    padding-block: 0.6rem;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+    text-underline-offset: 4px;
+    transition: color var(--speed) var(--ease);
+}
+
+.footer__legal a:hover {
+    color: var(--yellow);
+}
+
+/* Tablets: brand on top, the three link columns side by side */
+@media (min-width: 640px) {
+    .footer__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .footer__grid > .footer__col:last-child {
+        grid-column: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer__cta {
+        grid-template-columns: 1fr auto;
+        justify-items: start;
+        align-items: center;
+        text-align: left;
+    }
+
+    .footer__grid {
+        grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+        gap: 2.5rem;
+    }
+
+    .footer__brand {
+        grid-column: auto;
+    }
+
+    .footer__bottom {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        text-align: left;
+    }
 }
 
 /* ---------- Back to top ---------- */

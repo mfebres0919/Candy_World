@@ -1691,47 +1691,45 @@
     margin: 0;
 }
 
-/* Social row under the contact details */
-.contact__social {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px dashed rgba(176, 40, 92, 0.3);
+/* Send button with filled social circles beside it */
+.contact__form-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.25rem;
 }
 
 .contact__social-list {
     display: flex;
-    gap: 0.75rem;
-    margin-top: 0.75rem;
+    gap: 0.6rem;
 }
 
 .contact__social-link {
     position: relative;
     display: grid;
     place-items: center;
-    width: 48px;
-    height: 48px;
-    border: 2px solid var(--pink);
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-    color: var(--pink);
+    background: var(--pink);
+    color: var(--white);
+    box-shadow: 0 6px 14px rgba(176, 40, 92, 0.25);
     overflow: hidden;
     isolation: isolate;
-    transition: color var(--speed) var(--ease);
 }
 
+/* Deep berry rises from the bottom on hover, like the buttons */
 .contact__social-link::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: var(--pink);
+    background: var(--ink);
     transform: scaleY(0);
     transform-origin: bottom;
     transition: transform var(--speed) var(--ease);
-}
-
-.contact__social-link:hover,
-.contact__social-link:focus-visible {
-    color: var(--white);
 }
 
 .contact__social-link:hover::before,
@@ -1769,8 +1767,7 @@
 }
 
 .contact__submit {
-    justify-self: start;
-    margin-top: 0.25rem;
+    margin: 0;
 }
 
 /* Map: a branded placeholder until the real map loads */
