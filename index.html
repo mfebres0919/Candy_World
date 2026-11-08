@@ -803,7 +803,7 @@
                         <form class="contact__form" name="contact" method="POST" data-netlify="true" netlify-honeypot="company" action="./#contact">
                             <input type="hidden" name="form-name" value="contact">
                             <p class="visually-hidden">
-                                <label>Leave this field empty <input name="company" tabindex="-1" autocomplete="off"></label>
+                                <label>Leave this field empty <input name="company" tabindex="-1" autocomplete="off" aria-label="Leave this field empty"></label>
                             </p>
 
                             <div class="contact__row">
@@ -888,7 +888,8 @@
             <div class="footer__grid">
                 <div class="footer__brand" data-reveal="up">
                     <a class="footer__logo" href="./">
-                        <img src="images/brand/candy-world-logo-m.png" alt="Candy World Drinks N' Treats home" width="280" height="85" loading="lazy" decoding="async">
+                        <span class="visually-hidden">Candy World Drinks N' Treats home</span>
+                        <img src="images/brand/candy-world-logo-m.png" alt="" width="280" height="85" loading="lazy" decoding="async">
                     </a>
                     <p class="footer__tagline">Rainbow slushies, candy apples and party-ready treats from Snellville's favorite candy store and food truck.</p>
                     <ul class="footer__social">
