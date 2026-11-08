@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="javascript/global.js" defer></script>
+    <script src="javascript/script.js" defer></script>
 
     <!-- Approved exception: local business structured data (JSON-LD) -->
     <script type="application/ld+json">
@@ -262,6 +263,158 @@
                 <path class="hero__edge-back" d="M0 38C240 98 480 0 720 40S1200 104 1440 28V120H0Z"/>
                 <path class="hero__edge-front" d="M0 72C260 122 500 30 760 70S1220 124 1440 62V120H0Z"/>
             </svg>
+        </section>
+
+        <!-- ===== Featured treats ===== -->
+        <section class="treats" id="treats" aria-labelledby="treats-title">
+            <div class="container">
+                <header class="treats__header">
+                    <p class="treats__eyebrow">Fan Favorites</p>
+                    <h2 class="treats__title" id="treats-title">A Snippet of Our Mouthwatering Menu</h2>
+                    <p class="treats__text">From rainbow slushies to candy apples and cocoa bombs, here are a few of the treats our customers keep coming back for.</p>
+                </header>
+
+                <div class="treats__carousel" role="region" aria-roledescription="carousel" aria-label="Featured treats">
+                    <ul class="treats__track" id="treats-track" tabindex="0">
+                        <li class="treat-card" aria-roledescription="slide" aria-label="1 of 8">
+                            <div class="treat-card__media">
+                                <picture>
+                                    <source srcset="images/treats/rainbow-candy-slushie.webp" type="image/webp">
+                                    <img src="images/treats/rainbow-candy-slushie.jpg" alt="Layered rainbow candy slushie topped with gummy candy" width="640" height="480" loading="lazy" decoding="async">
+                                </picture>
+                                <span class="treat-card__tag">Drinks</span>
+                            </div>
+                            <div class="treat-card__body">
+                                <h3 class="treat-card__title">Rainbow Candy Slushie</h3>
+                                <p class="treat-card__text">Tastes just as good as it looks! Build your own with 16+ flavors and toppings.</p>
+                                <a class="btn btn--pink treat-card__btn" href="shop/">Order Now<span class="visually-hidden">: Rainbow Candy Slushie</span></a>
+                            </div>
+                        </li>
+                        <li class="treat-card" aria-roledescription="slide" aria-label="2 of 8">
+                            <div class="treat-card__media">
+                                <picture>
+                                    <source srcset="images/treats/pecan-praline-candy-apple.webp" type="image/webp">
+                                    <img src="images/treats/pecan-praline-candy-apple.jpg" alt="Candy apple smothered in caramel and pecan praline" width="640" height="480" loading="lazy" decoding="async">
+                                </picture>
+                                <span class="treat-card__tag">Candy Apples</span>
+                            </div>
+                            <div class="treat-card__body">
+                                <h3 class="treat-card__title">Pecan Praline Candy Apple</h3>
+                                <p class="treat-card__text">This apple is amazingly delicious! Smothered in caramel and loaded with pecan praline.</p>
+                                <a class="btn btn--pink treat-card__btn" href="shop/">Order Now<span class="visually-hidden">: Pecan Praline Candy Apple</span></a>
+                            </div>
+                        </li>
+                        <li class="treat-card" aria-roledescription="slide" aria-label="3 of 8">
+                            <div class="treat-card__media">
+                                <picture>
+                                    <source srcset="images/treats/candy-grapes.webp" type="image/webp">
+                                    <img src="images/treats/candy-grapes.jpg" alt="Candy-coated grapes in pink, green and blue" width="640" height="480" loading="lazy" decoding="async">
+                                </picture>
+                                <span class="treat-card__tag">Treats</span>
+                            </div>
+                            <div class="treat-card__body">
+                                <h3 class="treat-card__title">Candy Grapes</h3>
+                                <p class="treat-card__text">One of our most popular treats! Juicy grapes in a sweet, crunchy candy coating.</p>
+                                <a class="btn btn--pink treat-card__btn" href="shop/">Order Now<span class="visually-hidden">: Candy Grapes</span></a>
+                            </div>
+                        </li>
+                        <li class="treat-card" aria-roledescription="slide" aria-label="4 of 8">
+                            <div class="treat-card__media">
+                                <picture>
+                                    <source srcset="images/treats/hot-cocoa-bombs.webp" type="image/webp">
+                                    <img src="images/treats/hot-cocoa-bombs.jpg" alt="Decorated hot cocoa bombs with marshmallows" width="640" height="480" loading="lazy" decoding="async">
+                                </picture>
+                                <span class="treat-card__tag">Treats</span>
+                            </div>
+                            <div class="treat-card__body">
+                                <h3 class="treat-card__title">Hot Cocoa Bombs</h3>
+                                <p class="treat-card__text">Perfect for family game night or date night by the fire!</p>
+                                <a class="btn btn--pink treat-card__btn" href="shop/">Order Now<span class="visually-hidden">: Hot Cocoa Bombs</span></a>
+                            </div>
+                        </li>
+                        <li class="treat-card" aria-roledescription="slide" aria-label="5 of 8">
+                            <div class="treat-card__media">
+                                <picture>
+                                    <source srcset="images/treats/unicone-snowie.webp" type="image/webp">
+                                    <img src="images/treats/unicone-snowie.jpg" alt="Rainbow snowie in a cone cup topped with candy" width="640" height="480" loading="lazy" decoding="async">
+                                </picture>
+                                <span class="treat-card__tag">Drinks</span>
+                            </div>
+                            <div class="treat-card__body">
+                                <h3 class="treat-card__title">Signature Unicone Snowie</h3>
+                                <p class="treat-card__text">Our signature rainbow snowie, piled high with candy and topped with a unicorn horn.</p>
+                                <a class="btn btn--pink treat-card__btn" href="shop/">Order Now<span class="visually-hidden">: Signature Unicone Snowie</span></a>
+                            </div>
+                        </li>
+                        <li class="treat-card" aria-roledescription="slide" aria-label="6 of 8">
+                            <div class="treat-card__media">
+                                <picture>
+                                    <source srcset="images/treats/mega-krispies.webp" type="image/webp">
+                                    <img src="images/treats/mega-krispies.jpg" alt="Stacked fruity and cookies and cream crispy treats" width="640" height="480" loading="lazy" decoding="async">
+                                </picture>
+                                <span class="treat-card__tag">Treats</span>
+                            </div>
+                            <div class="treat-card__body">
+                                <h3 class="treat-card__title">MEGA Krispies</h3>
+                                <p class="treat-card__text">Ooey gooey Fruity, Strawberry and Cookies N' Cream marshmallow treats!</p>
+                                <a class="btn btn--pink treat-card__btn" href="shop/">Order Now<span class="visually-hidden">: MEGA Krispies</span></a>
+                            </div>
+                        </li>
+                        <li class="treat-card" aria-roledescription="slide" aria-label="7 of 8">
+                            <div class="treat-card__media">
+                                <picture>
+                                    <source srcset="images/treats/chocolate-pecan-turtles.webp" type="image/webp">
+                                    <img src="images/treats/chocolate-pecan-turtles.jpg" alt="Milk and white chocolate pecan turtles" width="640" height="480" loading="lazy" decoding="async">
+                                </picture>
+                                <span class="treat-card__tag">Treats</span>
+                            </div>
+                            <div class="treat-card__body">
+                                <h3 class="treat-card__title">Chocolate Pecan Turtles</h3>
+                                <p class="treat-card__text">Choose white or milk chocolate turtles, packed with crunchy pecans.</p>
+                                <a class="btn btn--pink treat-card__btn" href="shop/">Order Now<span class="visually-hidden">: Chocolate Pecan Turtles</span></a>
+                            </div>
+                        </li>
+                        <li class="treat-card" aria-roledescription="slide" aria-label="8 of 8">
+                            <div class="treat-card__media">
+                                <picture>
+                                    <source srcset="images/treats/candy-apple-heaven.webp" type="image/webp">
+                                    <img src="images/treats/candy-apple-heaven.jpg" alt="White chocolate and caramel pecan candy apples" width="640" height="480" loading="lazy" decoding="async">
+                                </picture>
+                                <span class="treat-card__tag">Candy Apples</span>
+                            </div>
+                            <div class="treat-card__body">
+                                <h3 class="treat-card__title">Candy Apple Heaven</h3>
+                                <p class="treat-card__text">Caramel, milk or white chocolate, red or blue hard candy, peanuts or pecans.</p>
+                                <a class="btn btn--pink treat-card__btn" href="shop/">Order Now<span class="visually-hidden">: Candy Apple Heaven</span></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="treats__bar">
+                    <div class="treats__controls">
+                        <button class="treats__arrow" type="button" data-treats="prev" aria-controls="treats-track">
+                            <span class="visually-hidden">Previous treats</span>
+                            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <div class="treats__dots" role="group" aria-label="Choose a set of treats"></div>
+                        <button class="treats__arrow" type="button" data-treats="next" aria-controls="treats-track">
+                            <span class="visually-hidden">Next treats</span>
+                            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                        <button class="treats__arrow treats__pause" type="button" aria-pressed="false">
+                            <span class="visually-hidden">Pause the treat slideshow</span>
+                            <svg class="treats__icon-pause" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                            <svg class="treats__icon-play" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+                        </button>
+                    </div>
+
+                    <a class="btn btn--yellow treats__menu-btn" href="shop/#menu">
+                        View Full Menu
+                        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
 
