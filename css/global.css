@@ -65,6 +65,7 @@
     --pink: #d81b6b;          /* main color, 4.9:1 behind white text */
     --pink-deep: #b8125a;
     --pink-dark: #8f0e47;
+    --pink-tint: #fde6ef;
     --blue: #1e88e5;          /* decorative only */
     --blue-text: #1565c0;     /* 5.7:1 on white, for blue text */
     --yellow: #ffc93c;        /* accent: stars, badges, primary hero button */
@@ -426,8 +427,15 @@ button {
     padding: 0;
     border: 0;
     border-radius: 50%;
-    background: var(--cream);
+    background: var(--pink);
+    box-shadow: 0 4px 12px rgba(216, 27, 107, 0.35);
     cursor: pointer;
+    transition: background-color var(--speed) var(--ease);
+}
+
+.nav__toggle:hover,
+.site-header.is-open .nav__toggle {
+    background: var(--pink-deep);
 }
 
 .nav__toggle-bars,
@@ -437,7 +445,7 @@ button {
     width: 22px;
     height: 2.5px;
     border-radius: 2px;
-    background: var(--ink);
+    background: var(--white);
     transition: transform var(--speed) var(--ease), opacity var(--speed) var(--ease);
 }
 
@@ -517,9 +525,16 @@ button {
     transition: color var(--speed) var(--ease);
 }
 
-.nav__link:hover,
-.nav__link[aria-current="page"] {
+.nav__link:hover {
     color: var(--pink);
+}
+
+/* Phones: the current page gets a pink-tinted row */
+.nav__link[aria-current="page"] {
+    padding-inline: 0.85rem;
+    border-radius: 0.75rem;
+    background: var(--pink-tint);
+    color: var(--pink-dark);
 }
 
 .nav__chevron {
@@ -647,28 +662,58 @@ button {
         font-size: 1.05rem;
     }
 
-    /* Candy-pink underline for the current page and hovered link */
-    .nav__link::after {
+    .nav__link[aria-current="page"] {
+        background: none;
+        border-radius: var(--radius-pill);
+    }
+
+    /* Candy pills: a soft pink pill rises in on hover. The current page
+       keeps its pill and gets a little sprinkle dot. */
+    .nav__link {
+        border-radius: var(--radius-pill);
+        overflow: hidden;
+        isolation: isolate;
+    }
+
+    .nav__link::before {
         content: "";
         position: absolute;
-        left: 0.9rem;
-        right: 0.9rem;
-        bottom: 0.3rem;
-        height: 3px;
-        border-radius: 3px;
-        background: var(--pink);
-        transform: scaleX(0);
-        transform-origin: left;
+        inset: 0;
+        z-index: -1;
+        border-radius: inherit;
+        background: var(--pink-tint);
+        transform: scaleY(0);
+        transform-origin: bottom;
         transition: transform var(--speed) var(--ease);
     }
 
-    .nav__link:hover::after,
-    .nav__link[aria-current="page"]::after {
-        transform: scaleX(1);
+    .nav__link:hover::before,
+    .nav__link[aria-current="page"]::before,
+    .nav__item--dropdown.is-open .nav__drop-toggle::before {
+        transform: scaleY(1);
     }
 
-    .nav__drop-toggle::after {
-        right: 2.1rem;
+    .nav__link:hover,
+    .nav__link[aria-current="page"],
+    .nav__item--dropdown.is-open .nav__drop-toggle {
+        color: var(--pink-dark);
+    }
+
+    .nav__link[aria-current="page"] {
+        padding-left: 1.6rem;
+    }
+
+    .nav__link[aria-current="page"]::after {
+        content: "";
+        position: absolute;
+        left: 0.85rem;
+        top: 50%;
+        width: 7px;
+        height: 7px;
+        margin-top: -3.5px;
+        border-radius: 50%;
+        background: var(--pink);
+        box-shadow: 0 0 0 2px var(--yellow);
     }
 
     .nav__dropdown {
