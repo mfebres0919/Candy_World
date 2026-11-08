@@ -163,3 +163,130 @@
         year.textContent = new Date().getFullYear();
     }
 })();
+
+/* ---------- Scroll reveals ----------
+   1. Headings marked data-split are broken into letters (screen
+      readers still get the whole text from an aria-label).
+   2. Anything with data-reveal or data-split fades in when it scrolls
+      into view, once. The hero reveals right away on load.
+   3. When a fade finishes, the attribute is removed so the element
+      gets its normal hover transitions back. */
+(function () {
+    "use strict";
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function splitNode(node, counter) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+            if (child.nodeType === 3) {
+                var parts = child.textContent.split(/(\s+)/);
+                var frag = document.createDocumentFragment();
+
+                parts.forEach(function (part) {
+                    if (!part) {
+                        return;
+                    }
+
+                    if (/^\s+$/.test(part)) {
+                        frag.appendChild(document.createTextNode(" "));
+                        return;
+                    }
+
+                    var word = document.createElement("span");
+                    word.className = "split-word";
+
+                    Array.prototype.forEach.call(part, function (letter) {
+                        var ch = document.createElement("span");
+                        ch.className = "split-char";
+                        ch.style.setProperty("--char-index", counter.i);
+                        counter.i += 1;
+                        ch.textContent = letter;
+                        word.appendChild(ch);
+                    });
+
+                    frag.appendChild(word);
+                });
+
+                child.parentNode.replaceChild(frag, child);
+            } else if (child.nodeType === 1 && !child.classList.contains("about__title-chip")) {
+                splitNode(child, counter);
+            }
+        });
+    }
+
+    var splits = document.querySelectorAll("[data-split]");
+
+    splits.forEach(function (el) {
+        var full = el.textContent.replace(/\s+/g, " ").trim();
+        var decorative = el.getAttribute("aria-hidden") === "true";
+
+        splitNode(el, { i: 0 });
+
+        // Screen readers hear the heading as one phrase, not letters
+        if (!decorative) {
+            el.setAttribute("aria-label", full);
+            Array.prototype.forEach.call(el.querySelectorAll(".split-word"), function (w) {
+                w.setAttribute("aria-hidden", "true");
+            });
+        }
+    });
+
+    var items = document.querySelectorAll("[data-reveal], [data-split]");
+
+    function finish(el) {
+        el.addEventListener("transitionend", function done(event) {
+            if (event.target === el && event.propertyName === "filter") {
+                el.removeAttribute("data-reveal");
+                el.removeAttribute("data-reveal-delay");
+                el.removeEventListener("transitionend", done);
+            }
+        });
+    }
+
+    function reveal(el) {
+        el.classList.add("is-revealed");
+
+        if (el.hasAttribute("data-reveal")) {
+            finish(el);
+        }
+    }
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+        items.forEach(reveal);
+        return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                reveal(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
+
+    // At the very bottom of the page, show anything that never got far
+    // enough up the screen to trigger (like the footer's last row)
+    window.addEventListener("scroll", function atBottom() {
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+            items.forEach(function (el) {
+                if (!el.classList.contains("is-revealed")) {
+                    reveal(el);
+                    observer.unobserve(el);
+                }
+            });
+            window.removeEventListener("scroll", atBottom);
+        }
+    }, { passive: true });
+
+    items.forEach(function (el) {
+        // The hero plays on load instead of waiting for a scroll
+        if (el.closest(".hero")) {
+            requestAnimationFrame(function () {
+                reveal(el);
+            });
+        } else {
+            observer.observe(el);
+        }
+    });
+})();

@@ -1316,6 +1316,76 @@ button {
     }
 }
 
+/* ---------- Scroll reveals ----------
+   Elements fade in slowly (1.6s) as they scroll into view, from
+   different directions. Headings and the big outlined words appear
+   one letter at a time. Fades use filter:opacity so the browser still
+   counts the hero as painted right away (keeps LCP fast). Only set
+   when JavaScript runs (.js on <html>), so nothing hides without it. */
+.js [data-reveal] {
+    --reveal-step: 0;
+    filter: opacity(0);
+    transition:
+        filter 1.6s var(--ease) calc(var(--reveal-step) * 0.18s),
+        translate 1.6s var(--ease) calc(var(--reveal-step) * 0.18s),
+        scale 1.6s var(--ease) calc(var(--reveal-step) * 0.18s);
+}
+
+.js [data-reveal="up"] { translate: 0 2.75rem; }
+.js [data-reveal="down"] { translate: 0 -2rem; }
+.js [data-reveal="left"] { translate: -3.5rem 0; }
+.js [data-reveal="right"] { translate: 3.5rem 0; }
+.js [data-reveal="zoom"] { scale: 0.88; }
+
+.js [data-reveal-delay="1"] { --reveal-step: 1; }
+.js [data-reveal-delay="2"] { --reveal-step: 2; }
+.js [data-reveal-delay="3"] { --reveal-step: 3; }
+.js [data-reveal-delay="4"] { --reveal-step: 4; }
+
+.js [data-reveal].is-revealed {
+    filter: opacity(1);
+    translate: 0 0;
+    scale: 1;
+}
+
+/* Letter by letter: words stay together so lines wrap normally */
+.split-word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.js .split-char {
+    display: inline-block;
+    filter: opacity(0);
+    translate: 0 0.45em;
+    transition:
+        filter 0.9s var(--ease) calc(var(--char-index) * 0.04s),
+        translate 0.9s var(--ease) calc(var(--char-index) * 0.04s);
+}
+
+/* Big outlined words: slower, drifting in from the left */
+.js .kicker__outline .split-char,
+.js .footer__wordmark .split-char {
+    translate: -0.35em 0;
+    transition-duration: 1.2s;
+    transition-delay: calc(var(--char-index) * 0.07s);
+}
+
+.js .is-revealed .split-char {
+    filter: opacity(1);
+    translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js [data-reveal],
+    .js .split-char {
+        filter: none;
+        translate: none;
+        scale: none;
+        transition: none;
+    }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
     html {
