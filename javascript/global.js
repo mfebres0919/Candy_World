@@ -37,8 +37,18 @@
         toggle.setAttribute("aria-expanded", String(open));
         toggle.querySelector(".visually-hidden").textContent = open ? "Close menu" : "Open menu";
 
-        if (!open) {
-            setDropdown(false);
+        // Collapse the Services submenu after the menu has faded out,
+        // so the card doesn't jump in height while it closes
+        if (!open && dropItem && dropItem.classList.contains("is-open")) {
+            if (desktop.matches) {
+                setDropdown(false);
+            } else {
+                setTimeout(function () {
+                    if (!header.classList.contains("is-open")) {
+                        setDropdown(false);
+                    }
+                }, 650);
+            }
         }
     }
 
