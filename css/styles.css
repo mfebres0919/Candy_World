@@ -320,7 +320,7 @@
 }
 
 .hero__edge-front {
-    fill: var(--cream);
+    fill: var(--white);
 }
 
 /* ---------- Larger screens ---------- */
@@ -394,10 +394,77 @@
 /* ---------- Featured treats ----------
    Heading and intro, then the cards. They sit in a scroll-snap
    track, so phones can swipe, and script.js pages through them
-   every 3 seconds. */
+   every 5 seconds. */
+/* Background: a light sprinkle pattern on cream, plus two big soft
+   blobs (the hero's blob shape) in pale yellow and pale blue. */
 .treats {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     padding-block: clamp(3rem, 6vw, 5rem) var(--space-section);
+    background: var(--white) url("../images/decor/sprinkles.svg") repeat;
+    background-size: 260px;
 }
+
+/* Two big blobs (the hero's blob shape) float slowly up and down,
+   each on its own timing, with a soft drop shadow. */
+.treats__blob {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.treats__blob--yellow {
+    top: -4%;
+    left: -16%;
+    width: min(620px, 72vw);
+    height: auto;
+    color: #ffe9ad;
+    filter: drop-shadow(0 18px 24px rgba(214, 150, 0, 0.18));
+    animation: blob-float-a 9s ease-in-out infinite alternate;
+}
+
+.treats__blob--blue {
+    right: -18%;
+    bottom: -8%;
+    width: min(680px, 80vw);
+    height: auto;
+    color: #d9ecfc;
+    filter: drop-shadow(0 18px 24px rgba(30, 136, 229, 0.18));
+    animation: blob-float-b 11s ease-in-out -4s infinite alternate;
+}
+
+@keyframes blob-float-a {
+    from {
+        transform: translateY(-18px) rotate(-12deg);
+    }
+
+    to {
+        transform: translateY(22px) rotate(-8deg);
+    }
+}
+
+@keyframes blob-float-b {
+    from {
+        transform: translateY(20px) rotate(18deg);
+    }
+
+    to {
+        transform: translateY(-24px) rotate(14deg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .treats__blob--yellow {
+        left: -8%;
+    }
+
+    .treats__blob--blue {
+        right: -8%;
+    }
+}
+
 
 .treats__header {
     max-width: 40rem;
@@ -434,6 +501,11 @@
     clip-path: inset(0 4px);
 }
 
+/* Snap is switched off while script.js glides to the next set */
+.treats__track.is-sliding {
+    scroll-snap-type: none;
+}
+
 .treats__track::-webkit-scrollbar {
     display: none;
 }
@@ -448,16 +520,17 @@
     flex-direction: column;
     flex: 0 0 100%;
     scroll-snap-align: start;
+    border: 1px solid rgba(216, 27, 107, 0.14);
     border-radius: 1.5rem;
-    background: var(--white);
-    box-shadow: 0 8px 18px rgba(43, 19, 56, 0.12);
+    background: var(--pink-tint);
+    box-shadow: 0 8px 18px rgba(143, 14, 71, 0.12);
     overflow: hidden;
     transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
 }
 
 .treat-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 22px rgba(43, 19, 56, 0.16);
+    box-shadow: 0 12px 22px rgba(143, 14, 71, 0.18);
 }
 
 .treat-card__media {
@@ -668,7 +741,8 @@
 /* Reduced motion: the truck parks */
 @media (prefers-reduced-motion: reduce) {
     .hero__truck,
-    .hero__blob {
+    .hero__blob,
+    .treats__blob {
         animation: none;
     }
 }

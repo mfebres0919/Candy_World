@@ -107,7 +107,7 @@ html {
 body {
     margin: 0;
     min-width: 320px;
-    background: var(--cream);
+    background: var(--white);
     color: var(--ink);
     font-family: var(--font-body);
     font-size: 1rem;

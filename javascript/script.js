@@ -4,7 +4,7 @@
 
 /* ---------- Featured treats carousel ----------
    The cards sit in a scroll-snap track, so phones can swipe them.
-   Every 3 seconds the track moves to the next set: 4 cards on
+   Every 5 seconds the track glides to the next set: 4 cards on
    desktop, 2 on tablets, 1 on phones. After the last set it goes
    back to the start. It pauses while hovered or focused, while
    off screen, when the pause button is pressed, and it never
@@ -27,7 +27,10 @@
     var pauseLabel = pauseBtn.querySelector(".visually-hidden");
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    var DELAY = 3000;
+    var DELAY = 5000;
+    var GLIDE = 1100;
+    var glideFrame = null;
+    var gliding = false;
     var timer = null;
     var userPaused = reduceMotion;
     var hovered = false;
@@ -103,12 +106,54 @@
         });
     }
 
+    // Ease in and out, so each slide starts and lands softly
+    function easeInOut(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function stopGlide() {
+        cancelAnimationFrame(glideFrame);
+        gliding = false;
+        track.classList.remove("is-sliding");
+    }
+
+    // A slower, smoother glide than the browser's built-in smooth scroll
+    function glideTo(left) {
+        stopGlide();
+
+        if (reduceMotion) {
+            track.scrollLeft = left;
+            return;
+        }
+
+        var start = track.scrollLeft;
+        var distance = left - start;
+        var startTime = null;
+
+        gliding = true;
+        track.classList.add("is-sliding");
+
+        function step(now) {
+            if (startTime === null) {
+                startTime = now;
+            }
+
+            var progress = Math.min(1, (now - startTime) / GLIDE);
+            track.scrollLeft = start + distance * easeInOut(progress);
+
+            if (progress < 1) {
+                glideFrame = requestAnimationFrame(step);
+            } else {
+                stopGlide();
+            }
+        }
+
+        glideFrame = requestAnimationFrame(step);
+    }
+
     function goTo(page, fromUser) {
         var target = (page + pageCount) % pageCount;
-        track.scrollTo({
-            left: cardLeft(target * perPage),
-            behavior: reduceMotion ? "auto" : "smooth"
-        });
+        glideTo(cardLeft(target * perPage));
         markCurrent(target);
 
         // A manual move restarts the 3-second clock
@@ -177,15 +222,19 @@
         }
     });
 
-    // Swiping counts as a manual move
-    track.addEventListener("touchstart", stop, { passive: true });
+    // Swiping counts as a manual move, and takes over from any glide
+    track.addEventListener("touchstart", function () {
+        stopGlide();
+        stop();
+    }, { passive: true });
     track.addEventListener("touchend", restart, { passive: true });
 
     // Keep the dots in sync while swiping or scrolling
     var scrollTick = false;
 
     track.addEventListener("scroll", function () {
-        if (!scrollTick) {
+        // During a glide the target dot is already marked
+        if (!scrollTick && !gliding) {
             scrollTick = true;
             requestAnimationFrame(function () {
                 scrollTick = false;
