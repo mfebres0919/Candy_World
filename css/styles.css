@@ -401,7 +401,7 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-block: clamp(3rem, 6vw, 5rem) var(--space-section);
     background: var(--white) url("../images/decor/sprinkles.svg") repeat;
     background-size: 260px;
 }
@@ -428,7 +428,7 @@
 
 .treats__blob--berry {
     right: -18%;
-    bottom: -8%;
+    bottom: 26%;
     width: min(680px, 80vw);
     height: auto;
     color: #f7dbe6;
@@ -744,11 +744,21 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding-top: var(--space-section);
-    /* Soft diagonal candy stripes on blush */
-    background:
-        repeating-linear-gradient(135deg, rgba(176, 40, 92, 0.035) 0 18px, transparent 18px 46px),
-        var(--blush);
+    padding-block: calc(var(--space-section) + var(--wave-height) * 0.6) var(--space-section);
+    background: var(--blush);
+}
+
+/* Soft diagonal candy stripes that fade out before the bottom, so the
+   next wave meets plain blush with no visible band */
+.services::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: repeating-linear-gradient(135deg, rgba(176, 40, 92, 0.035) 0 18px, transparent 18px 46px);
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 96%);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent 96%);
+    pointer-events: none;
 }
 
 /* Big outlined candy doodles that sway in the corners */
@@ -885,7 +895,7 @@
 .about {
     position: relative;
     isolation: isolate;
-    padding-top: var(--space-section);
+    padding-block: calc(var(--space-section) + var(--wave-height) * 0.6) var(--space-section);
     background: var(--white) url("../images/decor/sprinkles.svg") repeat;
     background-size: 260px;
     overflow: hidden;
@@ -1214,7 +1224,7 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding-block: var(--space-section);
+    padding-block: calc(var(--space-section) + var(--wave-height) * 0.6) var(--space-section);
     /* Two soft berry glows on the deep berry base */
     background:
         radial-gradient(circle at 12% 18%, rgba(176, 40, 92, 0.55), transparent 42%),

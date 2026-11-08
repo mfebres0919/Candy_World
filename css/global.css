@@ -858,40 +858,36 @@ button {
 }
 
 /* ---------- Section dividers ----------
-   The same two-layer wave as the bottom of the hero. It sits at the
-   bottom of a section: the front layer matches the NEXT section's
-   background, and the back layer is a thin colored ribbon. */
-.has-divider {
-    position: relative;
-    padding-bottom: calc(var(--space-section) + clamp(36px, 6vw, 90px));
+   The same two-layer wave as the bottom of the hero, placed at the TOP
+   of a section and flipped. The front layer is the PREVIOUS section's
+   color and the back layer is a yellow ribbon, so this section's own
+   background (stripes, glows) runs right up under the wave. */
+:root {
+    --wave-height: clamp(44px, 7vw, 110px);
 }
 
 .section-divider {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -1px;
+    top: -1px;
     z-index: 1;
     width: 100%;
-    height: clamp(44px, 7vw, 110px);
+    height: var(--wave-height);
+    transform: scaleY(-1);
     pointer-events: none;
 }
 
-/* Back ribbon is always yellow; the front matches the next section */
 .section-divider__back {
     fill: var(--yellow);
 }
 
-.section-divider--blush .section-divider__front {
-    fill: var(--blush);
-}
-
-.section-divider--dark .section-divider__front {
-    fill: var(--ink);
-}
-
-.section-divider--white .section-divider__front {
+.section-divider__front {
     fill: var(--white);
+}
+
+.section-divider--from-blush .section-divider__front {
+    fill: var(--blush);
 }
 
 /* ---------- Back to top ---------- */
