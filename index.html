@@ -64,6 +64,17 @@
 <body id="top">
     <a class="skip-link" href="#main">Skip to main content</a>
 
+    <!-- Icon sprite: Google "G" (kept in Google's own colors so it reads as authentic) -->
+    <svg class="visually-hidden" aria-hidden="true" focusable="false">
+        <symbol id="icon-google" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.6 13.2l7.9 6.2C12.4 13.7 17.7 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.2z"/>
+            <path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.2C.9 16.5 0 20.1 0 24s.9 7.5 2.6 10.8l7.9-6.2z"/>
+            <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.2-8.5 2.2-6.3 0-11.6-4.2-13.5-9.9l-7.9 6.2C6.6 42.6 14.6 48 24 48z"/>
+        </symbol>
+    </svg>
+
+
     <!-- ===== Header: top bar + navigation in one card ===== -->
     <!-- Full width at the top of the page; floats as a rounded card once you scroll -->
     <header class="site-header">
@@ -621,6 +632,19 @@
                     <h2 class="reviews__title" id="reviews-title">What <span class="reviews__title-accent">Our Customers Are Saying</span> About Candy World</h2>
                     <p class="reviews__text">Real reviews from real customers. With a 5.0 rating from more than 2,300 Google reviews, here's why folks keep coming back for more.</p>
 
+                    <a class="google-badge" href="https://www.google.com/maps/search/?api=1&amp;query=Candy+World+Drinks+N+Treats+3300+Centerville+Hwy+Snellville+GA+30039" target="_blank" rel="noopener">
+                        <svg class="google-badge__logo" aria-hidden="true" focusable="false" width="34" height="34"><use href="#icon-google"/></svg>
+                        <span class="google-badge__body">
+                            <span class="google-badge__label">Google Rating</span>
+                            <span class="google-badge__score">
+                                <strong>5.0</strong>
+                                <span class="google-badge__stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg></span>
+                            </span>
+                            <span class="google-badge__count">2,300+ reviews</span>
+                        </span>
+                        <span class="visually-hidden">(opens Google Maps in a new tab)</span>
+                    </a>
+
                     <div class="reviews__slider" role="region" aria-roledescription="carousel" aria-label="Customer reviews">
                         <div class="reviews__slides" aria-live="off">
                             <figure class="review-card is-active" role="group" aria-roledescription="slide" aria-label="1 of 4">
@@ -633,8 +657,9 @@
                                     <span>
                                         <span class="review-card__name">Tamika B.</span>
                                         <span class="review-card__source">
+                                            <svg class="google-g" aria-hidden="true" focusable="false" width="18" height="18"><use href="#icon-google"/></svg>
                                             <span class="review-card__stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg></span>
-                                            5-star Google review
+                                            Google review
                                         </span>
                                     </span>
                                 </figcaption>
@@ -649,8 +674,9 @@
                                     <span>
                                         <span class="review-card__name">Amanda H.</span>
                                         <span class="review-card__source">
+                                            <svg class="google-g" aria-hidden="true" focusable="false" width="18" height="18"><use href="#icon-google"/></svg>
                                             <span class="review-card__stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg></span>
-                                            5-star Google review
+                                            Google review
                                         </span>
                                     </span>
                                 </figcaption>
@@ -665,8 +691,9 @@
                                     <span>
                                         <span class="review-card__name">Tearra S.</span>
                                         <span class="review-card__source">
+                                            <svg class="google-g" aria-hidden="true" focusable="false" width="18" height="18"><use href="#icon-google"/></svg>
                                             <span class="review-card__stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg></span>
-                                            5-star Google review
+                                            Google review
                                         </span>
                                     </span>
                                 </figcaption>
@@ -681,8 +708,9 @@
                                     <span>
                                         <span class="review-card__name">Teejay C.</span>
                                         <span class="review-card__source">
+                                            <svg class="google-g" aria-hidden="true" focusable="false" width="18" height="18"><use href="#icon-google"/></svg>
                                             <span class="review-card__stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg></span>
-                                            5-star Google review
+                                            Google review
                                         </span>
                                     </span>
                                 </figcaption>

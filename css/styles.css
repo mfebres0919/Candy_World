@@ -1339,6 +1339,66 @@
     color: rgba(255, 255, 255, 0.82);
 }
 
+/* Google credibility: a white rating badge under the intro and the
+   "G" on each review card */
+.google-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.25rem 0.7rem 0.9rem;
+    border-radius: 1rem;
+    background: var(--white);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+}
+
+.google-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.26);
+}
+
+.google-badge__body {
+    display: grid;
+    line-height: 1.25;
+}
+
+.google-badge__label {
+    color: var(--ink-soft);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.google-badge__score {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.google-badge__score strong {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+}
+
+.google-badge__stars {
+    display: flex;
+    gap: 1px;
+    color: #f5a300;
+}
+
+.google-badge__count {
+    color: var(--ink-soft);
+    font-size: 0.8125rem;
+}
+
+.google-g {
+    flex-shrink: 0;
+}
+
 .reviews__slider {
     margin-top: 2rem;
 }
